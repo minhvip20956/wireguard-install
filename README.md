@@ -1,4 +1,4 @@
-# wireguard-install
+<hr />
 Wireguard Installation and Manager script
 Run
 ```bash
