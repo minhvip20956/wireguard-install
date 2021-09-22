@@ -3,7 +3,7 @@
 Wireguard Installation and Manager script by Cong Minh Vuong
 <br />
 ### OS Support
-- Ubuntu 18.04 LTS | Ubuntu 20.04 LTS (Ubuntu 20.04 lTS Recommend)
+- Ubuntu 18.04 LTS | Ubuntu 20.04 LTS (Ubuntu 20.04 LTS Recommend)
 - Debian 10 | Debian 11
 - CentOS 7
 - AlmaLinux 8
