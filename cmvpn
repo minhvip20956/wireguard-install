@@ -33,8 +33,16 @@ function checkOS() {
 				exit 1
 			fi
 		fi
+	elif [[ -e /etc/fedora-release ]]; then
+		source /etc/os-release
+		OS="${ID}"
+	elif [[ -e /etc/centos-release ]]; then
+		source /etc/os-release
+		OS=centos
+	elif [[ -e /etc/arch-release ]]; then
+		OS=arch
 	else
-		echo "Looks like you aren't running this installer on a Debian, Ubuntu system"
+		echo "Looks like you aren't running this installer on a Debian, Ubuntu, Fedora, CentOS or Arch Linux system"
 		exit 1
 	fi
 }
@@ -118,6 +126,22 @@ function installWireGuard() {
 		apt update
 		apt-get install -y iptables resolvconf qrencode
 		apt-get install -y -t buster-backports wireguard
+	elif [[ ${OS} == 'fedora' ]]; then
+		if [[ ${VERSION_ID} -lt 32 ]]; then
+			dnf install -y dnf-plugins-core
+			dnf copr enable -y jdoss/wireguard
+			dnf install -y wireguard-dkms
+		fi
+		dnf install -y wireguard-tools iptables qrencode
+	elif [[ ${OS} == 'centos' ]]; then
+		yum -y install epel-release elrepo-release
+		if [[ ${VERSION_ID} -eq 7 ]]; then
+			yum -y install yum-plugin-elrepo
+		fi
+		yum -y install kmod-wireguard wireguard-tools iptables qrencode
+	elif [[ ${OS} == 'arch' ]]; then
+		pacman -S --needed --noconfirm wireguard-tools qrencode
+	fi
 
 	# Make sure the directory exists (this does not seem the be the case on fedora)
 	mkdir /etc/wireguard >/dev/null 2>&1
