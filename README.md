@@ -10,13 +10,13 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 - CentOS 8 or Almalinux Rocky Linux | (With SELinux Disabled)
 
 ### Automated install V1 (Best for Ubuntu and Debian Server)
-*Please update and upgrade your OS to newest*
+*Warning: Please update and upgrade your OS to latest before install*
 
 ```bash
 bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh)
 ```
 ### Automated install V2 (For All System list in OS Support)
-*Please update and upgrade your OS to newest*
+*Warning: Please update and upgrade your OS to latest before install*
 
 ```bash
 bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh)
