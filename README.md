@@ -6,8 +6,8 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 *(Ubuntu 20.04 LTS recommend)*
 - Ubuntu 18.04 LTS | Ubuntu 20.04 LTS
 - Debian 10 | Debian 11
-- CentOS 7
-- AlmaLinux 8
+- CentOS 7 (With SELinux Disabled)
+- AlmaLinux 8 (With SELinux Disabled)
 
 ### Automated install
 ```bash
