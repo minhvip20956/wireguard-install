@@ -190,6 +190,9 @@ net.ipv6.conf.all.forwarding = 1" >/etc/sysctl.d/wg.conf
 
 	newClient
 	echo "If you want to add more clients, you simply need to run command cmvpn again!"
+	echo "You need to download WireGuard Client from official home page for Windows/MacOS or AppStore CHPlay for Android and Iphone"
+	echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
+	echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
 
 	# Check if WireGuard is running
 	systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
@@ -308,6 +311,9 @@ AllowedIPs = ${CLIENT_WG_IPV4}/32,${CLIENT_WG_IPV6}/128" >>"/etc/wireguard/${SER
 	qrencode -t ansiutf8 -l L <"${HOME_DIR}/${SERVER_WG_NIC}-client-${CLIENT_NAME}.conf"
 
 	echo "It is also available in ${HOME_DIR}/${SERVER_WG_NIC}-client-${CLIENT_NAME}.conf"
+	echo "You need to download WireGuard Client from official home page for Windows/MacOS or AppStore CHPlay for Android and Iphone"
+	echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
+	echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
 }
 
 function revokeClient() {
@@ -393,13 +399,40 @@ function uninstallWg() {
 	fi
 }
 
+function downloadAndroid() {
+echo "Scan QRCode to Download Wireguard Client for Android Phone and Tablet:"
+echo ""
+qrencode -t UTF8 "https://play.google.com/store/apps/details?id=com.wireguard.android"
+echo ""
+}
+
+function downloadIOS() {
+echo "Scan QRCode to Download Wireguard Client for IPhone and IPad:"
+echo ""
+qrencode -t UTF8 "https://apps.apple.com/us/app/wireguard/id1441195209"
+echo ""
+}
+
+function downloadPC() {
+	echo ""
+	echo "You need to download WireGuard Client from official home page for Windows/MacOS:"
+	echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
+	echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+	echo ""
+}
+
 function manageMenu() {
 	echo "WireGuard is already installed."
+	echo "Show QR Code available With Command."
+	echo "qrencode -t UTF8 <${SERVER_WG_NIC}-client-{filename}.conf"
 	echo ""
 	echo "   1) Add a new user"
 	echo "   2) Revoke existing user"
-	echo "   3) Uninstall WireGuard"
-	echo "   4) Exit"
+	echo "   3) Client Android Download"
+	echo "   4) Client IOS Download"
+	echo "   5) Client PC/MacOS Download"
+	echo "   6) Uninstall WireGuard"
+	echo "   7) Exit"
 	until [[ ${MENU_OPTION} =~ ^[1-4]$ ]]; do
 		read -rp "Select an option [1-4]: " MENU_OPTION
 	done
@@ -411,9 +444,18 @@ function manageMenu() {
 		revokeClient
 		;;
 	3)
-		uninstallWg
+		downloadAndroid
 		;;
 	4)
+		downloadIOS
+		;;
+	5)
+		downloadPC
+		;;
+	6)
+		uninstallWg
+		;;
+	7)
 		exit 0
 		;;
 	esac
