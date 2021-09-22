@@ -33,7 +33,7 @@ cmvpn
 - Delete all conf for user file in directory
 - Run Command Version 2
 
-### Know Bug (Show Bug with Systemctl status {your-wg-network-device}.service)
+### Know Bug (Show Bug with Systemctl status wg-quick@wg0.service)
 - RTNETLINK answers: Operation not supported (If you are trying to establish a WireGuard connection with a wg-quick command and receive the following error. Most likely the wireguard kernel module is not loaded in your system. To fix this, open the terminal and run the following command "sudo modprobe wireguard" and restart your server)
 
 ## Good Luck!!!
