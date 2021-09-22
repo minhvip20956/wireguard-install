@@ -503,12 +503,14 @@ EOF
 	fi
 	echo
 	echo "The client configuration is available in:" ~/"$client.conf"
-	echo "New clients can be added by running this script again."
+	echo "Run cmvpn to Manager Script"
 else
 	clear
 	echo "WireGuard is already installed."
 	echo
-	echo "WireGuard is already installed."
+	echo "Show QR Code available With Command."
+	echo "qrencode -t UTF8 < {user}.conf"
+	echo "example: qrencode -t UTF8 < cmvpn.conf"
 	echo "Select an option:"
 	echo "   1) Add a new client"
 	echo "   2) Remove an existing client"
@@ -517,8 +519,9 @@ else
 	echo "   5) Client PC/MacOS Download"
 	echo "   6) Remove WireGuard"
 	echo "   7) Exit"
+	echo "   8) Update Script V2"
 	read -p "Option: " option
-	until [[ "$option" =~ ^[1-7]$ ]]; do
+	until [[ "$option" =~ ^[1-8]$ ]]; do
 		echo "$option: invalid selection."
 		read -p "Option: " option
 	done
@@ -705,6 +708,11 @@ else
 		;;
 		7)
 			exit
+		;;
+		8)
+			wget https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/cmvpn -O /usr/bin/cmvpn
+			chmod +x /usr/bin/cmvpn
+			cmvpn
 		;;
 	esac
 fi
