@@ -442,8 +442,9 @@ function manageMenu() {
 	echo "   5) Client PC/MacOS Download"
 	echo "   6) Uninstall WireGuard"
 	echo "   7) Exit"
-	until [[ ${MENU_OPTION} =~ ^[1-7]$ ]]; do
-		read -rp "Select an option [1-7]: " MENU_OPTION
+	echo "   8) Update Script V1"
+	until [[ ${MENU_OPTION} =~ ^[1-8]$ ]]; do
+		read -rp "Select an option [1-8]: " MENU_OPTION
 	done
 	case "${MENU_OPTION}" in
 	1)
@@ -466,6 +467,11 @@ function manageMenu() {
 		;;
 	7)
 		exit 0
+		;;
+	8)
+			wget https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/cmvpn -O /usr/bin/cmvpn
+			chmod +x /usr/bin/cmvpn
+			cmvpn
 		;;
 	esac
 }
