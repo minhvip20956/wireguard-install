@@ -9,7 +9,7 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 - CentOS 7 | (With SELinux Disabled)
 - CentOS 8 or Almalinux Rocky Linux | (With SELinux Disabled)
 
-### Automated install V1 (For Ubuntu and Debian Server)
+### Automated install V1 (Best for Ubuntu and Debian Server)
 ```bash
 bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh)
 ```
@@ -29,5 +29,8 @@ cmvpn
 - run "cmvpn" and choice remove Wireguard
 - Delete all conf for user file in directory
 - Run Command Version 2
+
+### Know Bug
+- RTNETLINK answers: Operation not supported (If you are trying to establish a WireGuard connection with a wg-quick command and receive the following error. Most likely the wireguard kernel module is not loaded in your system. To fix this, open the terminal and run the following command "sudo modprobe wireguard" and restart your server)
 
 ## Good Luck!!!
