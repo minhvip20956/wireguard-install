@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
 title: CM WireGuard VPN Server
 description: A Wireguard Installation and Manager script by Cong Minh Vuong
+show_downloads: false
