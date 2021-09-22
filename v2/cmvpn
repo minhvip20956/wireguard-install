@@ -1,9 +1,8 @@
 #!/bin/bash
 #
-# https://github.com/Nyr/wireguard-install
+# https://github.com/minhvip20956/wireguard-install/
 #
-# Copyright (c) 2020 Nyr. Released under the MIT License.
-
+# Copyright (c) 2021 Minhpro. Released under the MIT License.
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
@@ -95,13 +94,11 @@ fi
 new_client_dns () {
 	echo "Select a DNS server for the client:"
 	echo "   1) Current system resolvers"
-	echo "   2) Google"
-	echo "   3) 1.1.1.1"
-	echo "   4) OpenDNS"
-	echo "   5) Quad9"
-	echo "   6) AdGuard"
+	echo "   2) Google 8.8.8.8"
+	echo "   3) Cloudflare 1.1.1.1"
+	echo "   4) Google and Cloudflare"
 	read -p "DNS server [1]: " dns
-	until [[ -z "$dns" || "$dns" =~ ^[1-6]$ ]]; do
+	until [[ -z "$dns" || "$dns" =~ ^[1-4]$ ]]; do
 		echo "$dns: invalid selection."
 		read -p "DNS server [1]: " dns
 	done
@@ -125,13 +122,7 @@ new_client_dns () {
 			dns="1.1.1.1, 1.0.0.1"
 		;;
 		4)
-			dns="208.67.222.222, 208.67.220.220"
-		;;
-		5)
-			dns="9.9.9.9, 149.112.112.112"
-		;;
-		6)
-			dns="94.140.14.14, 94.140.15.15"
+			dns="8.8.8.8, 1.1.1.1"
 		;;
 	esac
 }
@@ -365,7 +356,7 @@ if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 		fi
 		# Grab the BoringTun binary using wget or curl and extract into the right place.
 		# Don't use this service elsewhere without permission! Contact me before you do!
-		{ wget -qO- https://wg.nyr.be/1/latest/download 2>/dev/null || curl -sL https://wg.nyr.be/1/latest/download ; } | tar xz -C /usr/local/sbin/ --wildcards 'boringtun-*/boringtun' --strip-components 1
+		{ wget -qO- https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/boringtun-latest.tar.gz 2>/dev/null || curl -sL https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/boringtun-latest.tar.gz ; } | tar xz -C /usr/local/sbin/ --wildcards 'boringtun-*/boringtun' --strip-components 1
 		# Configure wg-quick to use BoringTun
 		mkdir /etc/systemd/system/wg-quick@wg0.service.d/ 2>/dev/null
 		echo "[Service]
@@ -462,7 +453,7 @@ WantedBy=multi-user.target" >> /etc/systemd/system/wg-iptables.service
 		# Deploy upgrade script
 		cat << 'EOF' > /usr/local/sbin/boringtun-upgrade
 #!/bin/bash
-latest=$(wget -qO- https://wg.nyr.be/1/latest 2>/dev/null || curl -sL https://wg.nyr.be/1/latest 2>/dev/null)
+latest=$(wget -qO- https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/boringtun-version 2>/dev/null || curl -sL https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/boringtun-version 2>/dev/null)
 # If server did not provide an appropriate response, exit
 if ! head -1 <<< "$latest" | grep -qiE "^boringtun.+[0-9]+\.[0-9]+.*$"; then
 	echo "Update server unavailable"
@@ -470,7 +461,7 @@ if ! head -1 <<< "$latest" | grep -qiE "^boringtun.+[0-9]+\.[0-9]+.*$"; then
 fi
 current=$(boringtun -V)
 if [[ "$current" != "$latest" ]]; then
-	download="https://wg.nyr.be/1/latest/download"
+	download="https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/v2/boringtun-latest.tar.gz"
 	xdir=$(mktemp -d)
 	# If download and extraction are successful, upgrade the boringtun binary
 	if { wget -qO- "$download" 2>/dev/null || curl -sL "$download" ; } | tar xz -C "$xdir" --wildcards "boringtun-*/boringtun" --strip-components 1; then
@@ -517,13 +508,17 @@ else
 	clear
 	echo "WireGuard is already installed."
 	echo
+	echo "WireGuard is already installed."
 	echo "Select an option:"
 	echo "   1) Add a new client"
 	echo "   2) Remove an existing client"
-	echo "   3) Remove WireGuard"
-	echo "   4) Exit"
+	echo "   3) Client Android Download"
+	echo "   4) Client IOS Download"
+	echo "   5) Client PC/MacOS Download"
+	echo "   6) Remove WireGuard"
+	echo "   7) Exit"
 	read -p "Option: " option
-	until [[ "$option" =~ ^[1-4]$ ]]; do
+	until [[ "$option" =~ ^[1-7]$ ]]; do
 		echo "$option: invalid selection."
 		read -p "Option: " option
 	done
@@ -590,6 +585,29 @@ else
 			exit
 		;;
 		3)
+			echo "Scan QRCode to Download Wireguard Client for Android Phone and Tablet:"
+			echo ""
+			qrencode -t UTF8 "https://play.google.com/store/apps/details?id=com.wireguard.android"
+			echo ""
+		;;
+		4)
+			echo "Scan QRCode to Download Wireguard Client for IPhone and IPad:"
+			echo ""
+			qrencode -t UTF8 "https://apps.apple.com/us/app/wireguard/id1441195209"
+			echo ""
+		;;
+		5)
+			echo "You need to download WireGuard Client from official home page for Windows/MacOS:"
+			echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
+			echo ""
+			qrencode -t UTF8 "https://download.wireguard.com/windows-client/wireguard-installer.exe"
+			echo ""
+			echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+			echo ""
+			qrencode -t UTF8 "https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+			echo ""
+		;;
+		6)
 			echo
 			read -p "Confirm WireGuard removal? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
@@ -685,7 +703,7 @@ else
 			fi
 			exit
 		;;
-		4)
+		7)
 			exit
 		;;
 	esac
