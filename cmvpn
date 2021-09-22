@@ -189,7 +189,9 @@ net.ipv6.conf.all.forwarding = 1" >/etc/sysctl.d/wg.conf
 	systemctl enable "wg-quick@${SERVER_WG_NIC}"
 
 	newClient
+	echo ""
 	echo "If you want to add more clients, you simply need to run command cmvpn again!"
+	echo ""
 
 	# Check if WireGuard is running
 	systemctl is-active --quiet "wg-quick@${SERVER_WG_NIC}"
@@ -306,11 +308,13 @@ AllowedIPs = ${CLIENT_WG_IPV4}/32,${CLIENT_WG_IPV6}/128" >>"/etc/wireguard/${SER
 	echo -e "\nHere is your client config file as a QR Code:"
 
 	qrencode -t ansiutf8 -l L <"${HOME_DIR}/${SERVER_WG_NIC}-client-${CLIENT_NAME}.conf"
-
+	
+	echo ""
 	echo "It is also available in ${HOME_DIR}/${SERVER_WG_NIC}-client-${CLIENT_NAME}.conf"
 	echo "You need to download WireGuard Client from official home page for Windows/MacOS or AppStore CHPlay for Android and Iphone"
 	echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
 	echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+	echo ""
 }
 
 function revokeClient() {
@@ -419,7 +423,10 @@ function downloadPC() {
 }
 
 function manageMenu() {
+	clear
+	echo ""
 	echo "WireGuard is already installed."
+	echo ""
 	echo "Show QR Code available With Command."
 	echo "qrencode -t UTF8 <${SERVER_WG_NIC}-client-{filename}.conf"
 	echo ""
