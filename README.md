@@ -1,9 +1,6 @@
 
-<p align="center">
-  <a href="https://www.facebook.com/vuongcongminh">
-    <img src="banner.jpg" alt="Banner">
-  </a>
-</p>
+<p align="center"><img src="banner.jpg" alt="Banner"></p>
+<br />
 Wireguard Installation and Manager script by Cong Minh Vuong
 <br />
 ### OS Support
