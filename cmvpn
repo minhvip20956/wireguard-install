@@ -414,12 +414,16 @@ qrencode -t UTF8 "https://apps.apple.com/us/app/wireguard/id1441195209"
 echo ""
 }
 
-function downloadPC() {
-	echo ""
-	echo "You need to download WireGuard Client from official home page for Windows/MacOS:"
-	echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
-	echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
-	echo ""
+function downloadPCMac() {
+echo "You need to download WireGuard Client from official home page for Windows/MacOS:"
+echo "For Windows PC: https://download.wireguard.com/windows-client/wireguard-installer.exe"
+echo ""
+qrencode -t UTF8 "https://download.wireguard.com/windows-client/wireguard-installer.exe"
+echo ""
+echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+echo ""
+qrencode -t UTF8 "https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
+echo ""
 }
 
 function manageMenu() {
@@ -454,7 +458,7 @@ function manageMenu() {
 		downloadIOS
 		;;
 	5)
-		downloadPC
+		downloadPCMac
 		;;
 	6)
 		uninstallWg
