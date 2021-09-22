@@ -1,5 +1,5 @@
 
-Wireguard Installation and Manager script
+Wireguard Installation and Manager script by Cong Minh Vuong
 <br />
 ### OS Support
 - Ubuntu 18.04 | Ubuntu 20.04
@@ -10,4 +10,10 @@ Wireguard Installation and Manager script
 ### Automated install
 ```bash
 sh <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh)
+```
+
+### Run
+
+```bash
+cmvpn
 ```
