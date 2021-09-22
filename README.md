@@ -1,5 +1,4 @@
-
-<p align="center"><img src="banner.jpg" alt="Banner"></p>
+![Banner](/banner.jpg)
 <br />
 Wireguard Installation and Manager script by Cong Minh Vuong
 <br />
