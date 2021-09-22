@@ -185,6 +185,7 @@ net.ipv6.conf.all.forwarding = 1" >/etc/sysctl.d/wg.conf
 
 	sysctl --system
 
+	modprobe wireguard
 	systemctl start "wg-quick@${SERVER_WG_NIC}"
 	systemctl enable "wg-quick@${SERVER_WG_NIC}"
 
@@ -347,6 +348,10 @@ function revokeClient() {
 
 	# restart wireguard to apply changes
 	wg syncconf "${SERVER_WG_NIC}" <(wg-quick strip "${SERVER_WG_NIC}")
+	
+	echo "Revoke existing user complete!"
+	read -n1 -r -p "Press any key to continue..."
+	manageMenu
 }
 
 function uninstallWg() {
@@ -392,6 +397,7 @@ function uninstallWg() {
 		else
 			echo "WireGuard uninstalled successfully."
 			rm -f /usr/bin/cmvpn
+			read -n1 -r -p "Press any key to exit..."
 			exit 0
 		fi
 	else
@@ -405,6 +411,8 @@ echo "Scan QRCode to Download Wireguard Client for Android Phone and Tablet:"
 echo ""
 qrencode -t UTF8 "https://play.google.com/store/apps/details?id=com.wireguard.android"
 echo ""
+read -n1 -r -p "Press any key to continue..."
+cmvpn
 }
 
 function downloadIOS() {
@@ -412,6 +420,8 @@ echo "Scan QRCode to Download Wireguard Client for IPhone and IPad:"
 echo ""
 qrencode -t UTF8 "https://apps.apple.com/us/app/wireguard/id1441195209"
 echo ""
+read -n1 -r -p "Press any key to continue..."
+cmvpn
 }
 
 function downloadPCMac() {
@@ -424,6 +434,8 @@ echo "For MacOS: https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=
 echo ""
 qrencode -t UTF8 "https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12"
 echo ""
+read -n1 -r -p "Press any key to continue..."
+cmvpn
 }
 
 function manageMenu() {
@@ -471,6 +483,8 @@ function manageMenu() {
 	8)
 			wget https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/cmvpn -O /usr/bin/cmvpn
 			chmod +x /usr/bin/cmvpn
+			echo "Update Script V1 successfully!"
+			read -n1 -r -p "Press any key to continue..."
 			cmvpn
 		;;
 	esac
