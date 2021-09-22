@@ -441,8 +441,8 @@ function manageMenu() {
 	echo "   5) Client PC/MacOS Download"
 	echo "   6) Uninstall WireGuard"
 	echo "   7) Exit"
-	until [[ ${MENU_OPTION} =~ ^[1-4]$ ]]; do
-		read -rp "Select an option [1-4]: " MENU_OPTION
+	until [[ ${MENU_OPTION} =~ ^[1-7]$ ]]; do
+		read -rp "Select an option [1-7]: " MENU_OPTION
 	done
 	case "${MENU_OPTION}" in
 	1)
