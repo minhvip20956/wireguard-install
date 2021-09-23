@@ -14,14 +14,12 @@
   </head>
   <body>
     <a id="skip-to-content" href="#content">Skip to the content.</a>
-    <a href="/" class="btn">Back</a>
+    
 
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      {% if site.github.is_project_page %}
         <a href="https://www.facebook.com/vuongcongminh" class="btn">Contact Me</a>
-      {% endif %}
     </header>
 
     <main id="content" class="main-content" role="main">
