@@ -9,7 +9,8 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 - CentOS 7 | (With SELinux Disabled)
 - CentOS 8 or Almalinux Rocky Linux | (With SELinux Disabled)
 
-### I. Automated install V1 (Best for Ubuntu and Debian Server)
+### I. Automated install V1 (Best for Ubuntu and Debian Server with Public IP)
+
 *Warning: Please update and upgrade your OS to latest before install*
 
 **a) Install with command:**
@@ -31,8 +32,13 @@ cmvpn
 
 For phones, please open the Wireguard app and select "+" and select scan QR code to add VPN configuration. For PC, please copy the entire contents of the conf file into "Add Empty Tunnel" of Wireguard
 
-### II. Automated install V2 (For All System list in OS Support)
+### II. Automated install V2 (For All System list in OS Support and Ubuntu/Debian behind NAT)
+
 *Warning: Please update and upgrade your OS to latest before install*
+
+*If you are going to run V2 script because V1 script error is installed. Please run the command "cmvpn" and select Remove Wireguard before running this install command. This ensures the system has been cleaned up before you install the V2 script.*
+
+*If your server is behind NAT. Please open the port you need to use with UDP protocol. Example: 60354/UDP*
 
 **a) Install with command:**
 
