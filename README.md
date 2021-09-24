@@ -60,7 +60,7 @@ For phones, please open the Wireguard app and select "+" and select scan QR code
 - For IOS: [https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8)
 
 ### IV. Move Version 1 to Version 2 (lost all key)
-*If you are running well script V1. It is not necessary to upgrade to V2. I will support both versions*
+*If you are running well script V1. It is not necessary to upgrade to V2. I will support both versions.*
 - run "cmvpn" and choice remove Wireguard
 - Delete all conf for user file in directory
 - Run Command Version 2
