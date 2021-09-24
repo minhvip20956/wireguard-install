@@ -13,6 +13,7 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 *Warning: Please update and upgrade your OS to latest before install*
 
 **a) Install with command:**
+
 *Need Root Permissions, not Sudo*
 
 ```bash
@@ -34,6 +35,7 @@ For phones, please open the Wireguard app and select "+" and select scan QR code
 *Warning: Please update and upgrade your OS to latest before install*
 
 **a) Install with command:**
+
 *Need Root Permissions, not Sudo*
 
 ```bash
