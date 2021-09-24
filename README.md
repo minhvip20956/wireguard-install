@@ -12,24 +12,50 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 ### I. Automated install V1 (Best for Ubuntu and Debian Server)
 *Warning: Please update and upgrade your OS to latest before install*
 
+a) Install with command:
+*Need Root Permissions, not Sudo*
+
 ```bash
 bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn.sh)
 ```
+You will need to provide information during installation (IP or Domain Hostname, port, Private IP, first profile name, etc...). Please follow the instructions.
 
+b) Manager Script
 
-
-### II. Automated install V2 (For All System list in OS Support)
-*Warning: Please update and upgrade your OS to latest before install*
-
-```bash
-bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh)
-```
-
-### Run Only with Command
+Just with the following simple command. Every component you need is built-in.
 
 ```bash
 cmvpn
 ```
+
+For phones, please open the Wireguard app and select "+" and select scan QR code to add VPN configuration. For PC, please copy the entire contents of the conf file into "Add Empty Tunnel" of Wireguard
+
+### II. Automated install V2 (For All System list in OS Support)
+*Warning: Please update and upgrade your OS to latest before install*
+
+a) Install with command:
+*Need Root Permissions, not Sudo*
+
+```bash
+bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh || wget -O - https://raw.githubusercontent.com/minhvip20956/wireguard-install/main/vpn2.sh)
+```
+You will need to provide information during installation (IP or Domain Hostname, port, Private IP, first profile name, etc...). Please follow the instructions.
+
+b) Manager Script
+
+Just with the following simple command. Every component you need is built-in. 
+
+```bash
+cmvpn
+```
+
+For phones, please open the Wireguard app and select "+" and select scan QR code to add VPN configuration. For PC, please copy the entire contents of the conf file into "Add Empty Tunnel" of Wireguard
+
+### III. Client
+- For Windows: [https://download.wireguard.com/windows-client/wireguard-installer.exe](https://download.wireguard.com/windows-client/wireguard-installer.exe)
+- For MacOS: [https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12](https://itunes.apple.com/us/app/wireguard/id1451685025?ls=1&mt=12)
+- For Android: [https://play.google.com/store/apps/details?id=com.wireguard.android](https://play.google.com/store/apps/details?id=com.wireguard.android)
+- For IOS: [https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8)
 
 ### Move Version 1 to Version 2 (lost all key)
 - run "cmvpn" and choice remove Wireguard
