@@ -59,12 +59,13 @@ For phones, please open the Wireguard app and select "+" and select scan QR code
 - For Android: [https://play.google.com/store/apps/details?id=com.wireguard.android](https://play.google.com/store/apps/details?id=com.wireguard.android)
 - For IOS: [https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8](https://itunes.apple.com/us/app/wireguard/id1441195209?ls=1&mt=8)
 
-### Move Version 1 to Version 2 (lost all key)
+### IV. Move Version 1 to Version 2 (lost all key)
+*If you are running well script V1. It is not necessary to upgrade to V2. I will support both versions*
 - run "cmvpn" and choice remove Wireguard
 - Delete all conf for user file in directory
 - Run Command Version 2
 
-### Know Bug (Show Bug with Systemctl status wg-quick@wg0.service)
+### V. Know Bug (Show Bug with Systemctl status wg-quick@wg0.service)
 - RTNETLINK answers: Operation not supported (If you are trying to establish a WireGuard connection with a wg-quick command and receive the following error. Most likely the wireguard kernel module is not loaded in your system. To fix this, open the terminal and run the following command "sudo modprobe wireguard" and restart your server)
 
 ## Good Luck!!!
