@@ -12,7 +12,7 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 ### I. Automated install V1 (Best for Ubuntu and Debian Server)
 *Warning: Please update and upgrade your OS to latest before install*
 
-a) Install with command:
+**a) Install with command:**
 *Need Root Permissions, not Sudo*
 
 ```bash
@@ -20,7 +20,7 @@ bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/mai
 ```
 You will need to provide information during installation (IP or Domain Hostname, port, Private IP, first profile name, etc...). Please follow the instructions.
 
-b) Manager Script
+**b) Manager Script**
 
 Just with the following simple command. Every component you need is built-in.
 
@@ -33,7 +33,7 @@ For phones, please open the Wireguard app and select "+" and select scan QR code
 ### II. Automated install V2 (For All System list in OS Support)
 *Warning: Please update and upgrade your OS to latest before install*
 
-a) Install with command:
+**a) Install with command:**
 *Need Root Permissions, not Sudo*
 
 ```bash
@@ -41,7 +41,7 @@ bash <(curl https://raw.githubusercontent.com/minhvip20956/wireguard-install/mai
 ```
 You will need to provide information during installation (IP or Domain Hostname, port, Private IP, first profile name, etc...). Please follow the instructions.
 
-b) Manager Script
+**b) Manager Script**
 
 Just with the following simple command. Every component you need is built-in. 
 
