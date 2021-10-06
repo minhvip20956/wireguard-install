@@ -9,7 +9,7 @@ Wireguard Installation and Manager script by Cong Minh Vuong
 - CentOS 7 | (With SELinux Disabled)
 - CentOS 8 or Almalinux Rocky Linux | (With SELinux Disabled)
 
-### I. Automated install V1 (Best for Ubuntu and Debian Server with Public IP)
+### I. Automated install V1 (For Ubuntu and Debian Server with Public IP)
 
 *Warning: Please update and upgrade your OS to latest before install*
 
