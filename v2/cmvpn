@@ -97,8 +97,9 @@ new_client_dns () {
 	echo "   2) Google 8.8.8.8"
 	echo "   3) Cloudflare 1.1.1.1"
 	echo "   4) Google and Cloudflare"
+	echo "   5) Adguard DNS (block ads)"
 	read -p "DNS server [1]: " dns
-	until [[ -z "$dns" || "$dns" =~ ^[1-4]$ ]]; do
+	until [[ -z "$dns" || "$dns" =~ ^[1-5]$ ]]; do
 		echo "$dns: invalid selection."
 		read -p "DNS server [1]: " dns
 	done
@@ -123,6 +124,9 @@ new_client_dns () {
 		;;
 		4)
 			dns="8.8.8.8, 1.1.1.1"
+		;;
+		5)
+			dns="94.140.14.14, 94.140.15.15"
 		;;
 	esac
 }
